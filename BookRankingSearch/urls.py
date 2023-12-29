@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# 這三行 import 在各個 application 中定義的網頁資料
+from main_page import views  as m #main_page_view
+from search_result import views  as s # search_result_view
+from user_profile import views  as u# user_profile_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('main/', m.main_page_view),
+    path('result/', s.search_result_view),
+    path('user/', u.user_profile_view),
 ]
+

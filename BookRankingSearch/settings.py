@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# 定義有哪些功能要實作
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 上面的是系統預設
+    # 從這裡以下是我們要實作的
+    'main_page',
+    'search_result',
+    'user_profile'
 ]
 
 MIDDLEWARE = [
@@ -74,14 +80,19 @@ WSGI_APPLICATION = 'BookRankingSearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', # using mysql as database
+#         'NAME': str(BASE_DIR / 'db.mysql'), # may need to change
+#     }
+# }
+# 定義所使用的 database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # using mysql as database
-        'NAME': BASE_DIR / 'db.mysql', # may need to change
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.team22',
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
