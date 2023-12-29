@@ -4,7 +4,6 @@ A DBMS final project.
 ## Requirement
 ```
 pip install django
-pip install mysqlclient
 ```
 ## What do the folders do
 - `BookRankingSearch`: define the overall settings for the entire project
@@ -22,20 +21,10 @@ The following 3 folders are for implementing different function in the project: 
 
 In the setting folder: (i.e., `BookRankingSearch`)
 - `urls.py`: define the path of the url
-- `settings.py`: what database to use (we use mysql), 有哪些 app,  and so on 
-```
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',# 從這裡以上都是預設的 (不確定可不可刪)
-    'main_page', # 從這裡以下都是我們自己的
-    'search_result',
-    'user_profile'
-]
-```
+- `settings.py`: basic settings of the project, including: 
+     - what database to use (we use sqlite, 在 windows 不用額外安裝),
+     - 有哪些 app,  and so on 
+     
 In each application folder:
 - `view.py`: Web display control
 - `models.py`: database attribute definition/ implementing (expected to interact with mysql here)
