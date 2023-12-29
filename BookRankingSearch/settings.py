@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.http',
     # 上面的是系統預設
     # 從這裡以下是我們要實作的
     'main_page',

@@ -5,6 +5,26 @@
     <title>Title</title>
 </head>
 <body>
-    {{data}}
+    <p><h1>{{data}}</p>
+    <p><h2>search for books by name or ISBN:</p>
+    <p>
+      <form action="http://127.0.0.1:8000/result/" method="post">
+        {% csrf_token %}
+        <input type="text" name="searchKey" value="Book name, ISBN">
+        <button type="submit">search</button>
+      </form>    
+    </p>
+
+    {% if request.user.is_authenticated %}
+    <p>Hello, user "{{request.user}}"</p>
+    <p>click <a href="http://127.0.0.1:8000/user/">here</a> to check out your comments</p> 
+    <p>remember to <a href="http://127.0.0.1:8000/logout/">logout</a> before leaving ^_-</p>
+
+    {% else %}
+    <p>You can browse book rating in guest mode.</p>
+    <p>However, if you want to leave comments, please <a href="http://127.0.0.1:8000/login/">login</a>
+        or <a href="http://127.0.0.1:8000/sign_up/">register</p>
+    {% endif %} 
+
 </body>
 </html>

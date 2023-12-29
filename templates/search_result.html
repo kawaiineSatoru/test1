@@ -5,6 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-    {{data}}
+    <p>{{data}}</p>
+    <p>
+        <form action="http://127.0.0.1:8000/result/" method="post">
+          {% csrf_token %}
+          <input type="text" name="searchKey" value="Book name, ISBN">
+          <button type="submit">search</button>
+        </form>    
+      </p>
+    <ul>
+        {% for record in context %}
+        <li>{{record}} 
+            {% if request.user.is_authenticated %}
+            <form action="http://127.0.0.1:8000/leave_comment/" method="post">
+                {% csrf_token %}
+                <button type="submit">Leave comment</button>
+            </form>
+            {% else %}
+            <form action="http://127.0.0.1:8000/login/" method="post">
+                {% csrf_token %}
+                <button type="submit">Leave comment</button>
+            </form>
+            {% endif %}
+            <p></p>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
