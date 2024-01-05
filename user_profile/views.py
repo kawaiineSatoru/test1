@@ -35,5 +35,11 @@ def login(request): #check username and password
     else:
         return render(request, 'login_page.html', locals())
     
-def leaveComment(request):
+def edit_comment(request): #simply redirect to comment page, todo: pass info for books also
     return render(request, 'comment_page.html')
+
+def add_comment(request): #todo: add comment into database
+    return HttpResponseRedirect('http://127.0.0.1:8000/main')
+
+def remove_comment(request): #modify this function to do deletion on specfic comment
+    return HttpResponseRedirect('http://127.0.0.1:8000/main/')

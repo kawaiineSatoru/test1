@@ -30,6 +30,8 @@ urlpatterns = [
     path('login_check/', u.login),
     path('sign_up/', u.SignUpView.as_view()),
     path('logout/', u.logout_view),
-    path('leave_comment/', u.leaveComment)
+    path('edit_comment/', u.edit_comment),
+    path('add_comment/', u.add_comment),
+    path('delete_comment/', u.remove_comment)
 ]
 

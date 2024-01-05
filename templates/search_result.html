@@ -15,15 +15,17 @@
       </p>
     <ul>
         {% for record in context %}
-        <li>{{record}} 
+        <li>{{record}}
             {% if request.user.is_authenticated %}
-            <form action="http://127.0.0.1:8000/leave_comment/" method="post">
+            <form action="http://127.0.0.1:8000/edit_comment/" method="post">
                 {% csrf_token %}
+                <p hidden>{{record}}</p>  
                 <button type="submit">Leave comment</button>
             </form>
             {% else %}
             <form action="http://127.0.0.1:8000/login/" method="post">
                 {% csrf_token %}
+                <p hidden>{{record}}</p> 
                 <button type="submit">Leave comment</button>
             </form>
             {% endif %}
