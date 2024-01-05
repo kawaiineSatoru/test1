@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-    {{data}}
+<body> 
+    {% if request.user.is_authenticated %}
+    <h1>{{request.user}}, below are the comments you had left on this website:</h1>
+    <h2>{% for record in data %}
+        <li> {{record}}
+            <form action="http://127.0.0.1:8000/edit_comment/" method="post">
+                {% csrf_token %}
+                <p hidden>{{record}}</p> 
+                <button type="submit">Update</button>
+            </form>
+            <form action="http://127.0.0.1:8000/delete_comment/" method="post">
+                {% csrf_token %}
+                <p hidden>{{record}}</p>
+                <button type="submit">Delete</button>
+            </form>
+            <p></p>
+        </li> 
+        {% endfor %}
+    {% else %}
+    <h1>You have to <a href="http://127.0.0.1:8000/login/">login</a> to check out your own comments!</h1>
+    {% endif %}
 </body>
 </html>

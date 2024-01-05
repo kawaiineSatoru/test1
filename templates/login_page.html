@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>You have to login before laeving a comment!</h1>
+  <form method="post" action="http://127.0.0.1:8000/login_check/">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>Username: </td>
+        <td><input type="text" name="username" id="username"></td>
+      </tr>
+      <tr>
+        <td>Password: </td>
+        <td><input type="text" name="password" id="password"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="login"></td>
+      </tr>
+    </table>
+    <p><h2>Don't have any account? Then <a href="http://127.0.0.1:8000/sign_up/">sign up</a> for one!</h2></p>
+    <p><h2>Or just browse this website in <a href="http://127.0.0.1:8000/main/">guest mode</a></h2></p>
+</body>

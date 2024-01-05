@@ -26,5 +26,12 @@ urlpatterns = [
     path('main/', m.main_page_view),
     path('result/', s.search_result_view),
     path('user/', u.user_profile_view),
+    path('login/', u.user_login_view),
+    path('login_check/', u.login),
+    path('sign_up/', u.SignUpView.as_view()),
+    path('logout/', u.logout_view),
+    path('edit_comment/', u.edit_comment),
+    path('add_comment/', u.add_comment),
+    path('delete_comment/', u.remove_comment)
 ]
 
