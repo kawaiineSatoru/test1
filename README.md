@@ -2,6 +2,7 @@
 A DBMS final project.
 
 ## Requirement
+
 ```
 pip install django
 ```
@@ -38,3 +39,10 @@ python manage.py runserver
 然後 ctrl + 點擊 terminal 中輸出的網址。
 
 或者直接透過瀏覽  http://127.0.0.1:8000/main 或  http://127.0.0.1:8000/result/ 或  http://127.0.0.1:8000/user/ 確認。
+
+## 幫助文件
+### 其他 repo
+- Tutorial (注意 url 的寫法因為版本不同而有些許差異): [Django 基本教學 - 從無到有 Django-Beginners-Guide](https://github.com/twtrubiks/django-tutorial)
+
+### Django Document
+- https://docs.djangoproject.com/en/5.0/
