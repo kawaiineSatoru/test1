@@ -5,27 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-    <p>{{data}}</p>
+    <p>{{ data }}</p>
     <p>
         <form action="http://127.0.0.1:8000/result/" method="post">
           {% csrf_token %}
           <input type="text" name="searchKey" value="Book name, ISBN">
           <button type="submit">search</button>
         </form>    
-      </p>
+    </p>
     <ul>
-        {% for record in context %}
-        <li>{{record}}
+        {% for result in context %}
+        <li>
+            Title: {{ result.Title }}<br>
+            Price: {{ result.Price }}<br>
+            Review score: {{result.review_score}}<br>
+            <!-- 其他屬性... -->
+
             {% if request.user.is_authenticated %}
             <form action="http://127.0.0.1:8000/edit_comment/" method="post">
                 {% csrf_token %}
-                <p hidden>{{record}}</p>  
+                <input type="hidden" name="record_id" value="{{ result.id }}">
                 <button type="submit">Leave comment</button>
             </form>
             {% else %}
             <form action="http://127.0.0.1:8000/login/" method="post">
                 {% csrf_token %}
-                <p hidden>{{record}}</p> 
+                <input type="hidden" name="record_id" value="{{ result.id }}">
                 <button type="submit">Leave comment</button>
             </form>
             {% endif %}
