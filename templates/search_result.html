@@ -16,9 +16,15 @@
     <ul>
         {% for result in context %}
         <li>
-            Title: {{ result.Title }}<br>
-            Price: {{ result.Price }}<br>
-            Review score: {{result.review_score}}<br>
+            Title: {{ result.Title__Title }}<br>
+            Categories: {{ result.categories }}<br>
+            Author: {{ result.authors }}<br>
+            Publisher: {{ result.publisher }}<br>
+            Published Date: {{ result.publishedDate }}<br>
+            Average Score: {{ result.avg_score }}<br>
+            Rating num: {{ result.rating_count }}<br>
+            Price: {{ result.min_price }} - {{ result.max_price }}<br>
+            Description: {{ result.description }}<br>
             <!-- 其他屬性... -->
 
             {% if request.user.is_authenticated %}
