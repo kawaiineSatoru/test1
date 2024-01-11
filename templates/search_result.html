@@ -13,6 +13,7 @@
           <button type="submit">search</button>
         </form>    
     </p>
+    <br> Results in Amazon Books Reviews: <br>
     <ul>
         {% for result in context %}
         <li>
@@ -25,6 +26,36 @@
             Rating num: {{ result.rating_count }}<br>
             Price: {{ result.min_price }} - {{ result.max_price }}<br>
             Description: {{ result.description }}<br>
+            <!-- 其他屬性... -->
+
+            {% if request.user.is_authenticated %}
+            <form action="http://127.0.0.1:8000/edit_comment/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="record_id" value="{{ result.id }}">
+                <button type="submit">Leave comment</button>
+            </form>
+            {% else %}
+            <form action="http://127.0.0.1:8000/login/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="record_id" value="{{ result.id }}">
+                <button type="submit">Leave comment</button>
+            </form>
+            {% endif %}
+            <p></p>
+        </li>
+        {% endfor %}
+    </ul>
+    <br> Results in Book Recommendation Dataset: <br>
+    <ul>
+        {% for result2 in context2 %}
+        <li>
+            Title: {{ result2.Title }}<br>
+            ISBN: {{ result2.ISBN__ISBN }}<br>
+            Author: {{ result2.author }}<br>
+            Publisher: {{ result2.publisher }}<br>
+            Published Year: {{ result2.Year_Of_Publication }}<br>
+            Average Score: {{ result2.avg_score }}<br>
+            Rating num: {{ result2.rating_count }}<br>
             <!-- 其他屬性... -->
 
             {% if request.user.is_authenticated %}
