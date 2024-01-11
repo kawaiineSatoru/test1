@@ -8,7 +8,7 @@ def search_result_view(request):
     if request.method == "POST":
         search_key = request.POST.get('searchKey', '')
         # 使用 annotate 計算每個標題的平均評分
-        Rating_full = Books_rating.objects.select_related('Title')
+        Rating_full = Books_rating.objects.select_related('relate_Title')
         search_results = (
             Rating_full
             .filter(Title__Title__icontains=search_key)
@@ -16,7 +16,6 @@ def search_result_view(request):
             .annotate(avg_score=Avg('review_score'),
                       rating_count = Count('Title__Title'),
                       categories = F('Title__categories'),
-                      description = F('Title__description'),
                       min_price=Min('Price'),
                       max_price=Max('Price'),
                       authors=F('Title__authors'),  # 獲取作者信息
