@@ -10,7 +10,7 @@ pip install django
 - `BookRankingSearch`: define the overall settings for the entire project
 - `templates`: every html files put in here
 
-我現在是為每一個頁面(主頁、搜尋結果、使用者登入後看到的頁面) ，都建立一個稱為 application 的一組 python 程式去控制，分別是以下三個:
+為每一個頁面(主頁、搜尋結果、使用者登入後看到的頁面) ，都建立一個稱為 application 的一組 python 程式去控制，分別是以下三個:
 1. `main_page`: define what data are passed to `main_page.html`, and functionality 
 2. `search_result`: define what content should be passed to `search_result.html`
 3. `user_profile` : similarly as above
